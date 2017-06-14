@@ -1,4 +1,4 @@
-# Title of Your Project Here
+# Coin Flip Simulator
 
 
 
@@ -23,11 +23,4 @@ Your specification **should include** the following types of information:
 * Does the program respond to mouse input? What, exactly, does the mouse do?
 * Does the program respond to keyboard input? How?
 * What graphical assets will be used?
-* Does the user have to do anything to install the program?
-
-Your specification should **not** include the following types of information:
-
-* The language you will use to create it.
-* Names of any specific files in the project.
-* How you will structure the classes, functions and code in your program.
-* The name of any files or tools that you will use to design the program.
+The coin flip simulator is used to determine the likely hood of different outcomes of a coin toss. The simulator gives you controller of the elements as you throw your coin, creating a remarkable coin flipping sandbox.
