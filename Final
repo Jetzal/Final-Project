@@ -1,1 +1,226 @@
-print("Hello There")
+import random
+"""
+from ggame import App, Color, LineStyle, Sprite, RectangleAsset, CircleAsset, EllipseAsset, PolygonAsset
+
+
+red = Color(0xff0000, 1.0)
+green = Color(0x00ff00, 1.0)
+blue = Color(0x0000ff, 1.0)
+black = Color(0x000000, 1.0)
+brown = Color(0x633C1F, 1.0)
+white = Color(0xFFFFFF, 1.0)
+yellow=Color(0xFFFF00, 1.0)
+"""
+
+tries = 0
+Edges = 0
+T=0
+H=0
+Wind=input("How much wind is there, 1-10?")
+Throw=input("1=Toss from your hand and you choose, 2=Toss from someone elses hand and they choose")
+Land=input("1=land in throwers hand, 2=land on the ground, 3= land on the ground and spin")
+ 
+#111
+if int(Throw) == 1:
+    start = input("1=flip from heads up, 2=flip from tails up")
+    if int(start) == 1: 
+        if int(Land) == 1: #land throwers hand
+            outcome111 = random.randint(1,10000)
+            print(outcome111)
+            if outcome111 < 5099.133:  #head
+                print("heads")
+            elif outcome111 > 5099.133 and outcome11 < 9998.2: #tails
+                print("tails")
+            elif outcome111 > 9998.2: #edge
+                print("Edge")
+# 112
+        if int(Land) == 2:
+            outcome112 = random.randint(1,10000)
+            print(outcome112)
+            if outcome112 < 5000:
+                print("tails")
+            if outcome112 > 5000:
+                print("heads")
+            if outcome112 == 5000:
+                print("Edge")
+#113    
+        if int(Land) == 3:
+            outcome113 = random.randint(1,10000)
+            print(outcome113)
+            if outcome112 < 5000:
+                print("tails")
+            if outcome113 > 5000:
+                print("heads")
+            if outcome113 == 5000:
+                print("Edge")
+#121
+    if int(start) == 2:
+        if int(Land) == 1: #land throwers hand
+            outcome121 = random.randint(1,10000)
+            print(outcome121)
+            if outcome121 < 5099.133:  #head
+                print("heads")
+            elif outcome121 > 5099.133 and outcome11 < 9998.2: #tails
+                print("tails")
+            elif outcome121 > 9998.2: #edge
+                print("Edge")
+#122
+        if int(Land) == 2:
+            outcome122 = random.randint(1,10000)
+            print(outcome12)
+            if outcome122 < 5000:
+                print("tails")
+            if outcome122 > 5000:
+                print("heads")
+            if outcome122 == 5000:
+                print("edge")
+#123
+        if int(Land) == 3:
+            outcome123 = random.randint(1,10000)
+            print(outcome123)
+            if outcome123 < 5000:
+                print("tails")
+            if outcome123 > 5000:
+                print("heads")
+            if outcome123 == 5000:
+                print("edge")
+#
+#
+#
+#           ALLL 1 ^
+#
+#
+
+#211
+if int(Throw) == 2:
+    start = input("1=flip from heads up, 2=flip from tails up")
+    if int(start) == 1: 
+        if int(Land) == 1: #land throwers hand
+            outcome211 = random.randint(1,10000)
+            print(outcome211)
+            if outcome211 < 5099.133:  #head
+                print("heads")
+            elif outcome211 > 5099.133 and outcome11 < 9998.2: #tails
+                print("tails")
+            elif outcome211 > 9998.2: #edge
+                print("Edge")
+#212
+        if int(Land) == 2:
+            outcome212 = random.randint(1,10000)
+            print(outcome212)
+            if outcome212 < 5000:
+                print("tails")
+            if outcome212 > 5000:
+                print("heads")
+            if outcome212 == 5000:
+                print("Edge")
+        if int(Land) == 3:
+            outcome213 = random.randint(1,10000)
+            print(outcome113)
+            if outcome212 < 5000:
+                print("tails")
+            if outcome213 > 5000:
+                print("heads")
+            if outcome213 == 5000:
+                print("Edge")
+#213  
+elif int(throw) == 2:  #Someones elses hand they choose
+    startr = random.randint(1,2)
+    if startr == 1: #tails
+        outcome211
+        if outcome12 < 5099.133:  #tails
+            print("tails")
+        elif outcome12 > 5099.133 and outcome111 < 9998.2: #heads
+            print("heads")
+        elif outcome12 > 9998.2: #edge
+            print("Edge") 
+ #221
+    if int(start) == 2:
+        if int(Land) == 1: #land throwers hand
+            outcome221 = random.randint(1,10000)
+            print(outcome221)
+            if outcome221 < 5099.133:  #head
+                print("heads")
+            elif outcome221 > 5099.133 and outcome11 < 9998.2: #tails
+                print("tails")
+            elif outcome221 > 9998.2: #edge
+                print("Edge")
+#222
+        if int(Land) == 2:
+            outcome222 = random.randint(1,10000)
+            print(outcome12)
+            if outcome222 < 5000:
+                print("tails")
+            if outcome222 > 5000:
+                print("heads")
+            if outcome222 == 5000:
+                print("edge")
+#223
+        if int(Land) == 3:
+            outcome223 = random.randint(1,10000)
+            print(outcome123)
+            if outcome223 < 5000:
+                print("tails")
+            if outcome223 > 5000:
+                print("heads")
+            if outcome223 == 5000:
+                print("edge")
+"""
+        if throwerside == 2:
+            if outcome12 < 5099.133:  #head
+                print("heads")
+            elif outcome12 > 5099.133 and outcome111 < 9998.2: #tails
+                print("tails")
+            elif outcome12 > 9998.2: #edge
+                print("Edge")
+    if int(land) == 2:
+        print("YEET")
+        
+elif int(Throw) == 3:
+    if int(land) == 1:
+        print("three")    
+ 
+print("________________________________")
+
+while tries < 1:
+    tries += 1
+    coin = random.randint(1, 6000)
+    if coin <2999:
+        print('Heads')
+        H += 1
+    if coin >2999 and coin <6000:
+        print ('Tails')
+        T += 1
+    if coin == 6000:
+        print('Edge')
+        Edges += 1 
+        
+total = tries
+print(total)
+print("edges=" ,Edges,"")
+print("Tails=" ,T,"")
+print("Heads=" ,H,"")
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+#If the coin is tossed and caught, it has about a 51% chance of landing on the same face it was launched. (If it starts out as heads, there's a 51% chance it will end as heads).
+# the coin is spun, rather than tossed, it can have a much-larger-than-50% chance of ending with the heavier side down. Spun coins can exhibit "huge bias" (some spun coins will fall tails-up 80% of the time).
+#If the coin is tossed and allowed to clatter to the floor, this probably adds randomness.
+#If the coin is tossed and allowed to clatter to the floor where it spins, as will sometimes happen, the above spinning bias probably comes into play.
+#A coin will land on its edge around 1 in 6000 throws, creating a flipistic singularity.
+#The same initial coin-flipping conditions produce the same coin flip result. That is, there's a certain amount of determinism to the coin flip.
+#A more robust coin toss (more revolutions) decreases the bias.
+ 
+ 
+ 
+"""
+ 
+ 
+myapp = App()
+myapp.run()
+ 
