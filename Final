@@ -6,13 +6,6 @@ from ggame import SoundAsset, Sound, TextAsset, Color
 import math
 from time import time
 
-class CoinGame(App):
-    coin = Coin((200,200), "tail")
-    coinstate = "tail"
-    
-    def step(self):
-        delete coin
-
 class Sun(Sprite):
     asset = ImageAsset("images/sun.png")
     width = 80
@@ -40,6 +33,12 @@ class Coin(Sprite):
             self.image = self.image + 1
             if self.image >= 2:
                 self.image = 0
+
+class CoinGame(App):
+    coin = Coin((200,200), "tail")
+
+    def step(self):
+        coin.step()
 
 
 red = Color(0xff0000, 1.0)
