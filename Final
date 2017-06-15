@@ -1,6 +1,25 @@
 
 from ggame import App, Color, LineStyle, Sprite, RectangleAsset, CircleAsset, EllipseAsset, PolygonAsset
 import random
+from ggame import App, Sprite, ImageAsset, Frame
+from ggame import SoundAsset, Sound, TextAsset, Color
+import math
+from time import time
+
+class Sun(Sprite):
+    asset = ImageAsset("images/sun.png")
+    width = 80
+    height = 76
+    
+    def __init__(self, position):
+        super().__init__(Sun.asset, position)
+        
+class Coin(Sprite):
+    width = 80
+    height = 76
+    
+    def __init__(self, position, type):
+        super().__init__(ImageAsset("images/coin" + type + ".jpg"), position)
 
 
 red = Color(0xff0000, 1.0)
@@ -20,12 +39,13 @@ ellipse=EllipseAsset(30, 20, thinline, white)
 polygon=PolygonAsset([(0,0), (700,0), (350,-300), (0,0)], thinline, black)
 door= RectangleAsset(100,200, thinline, black)
 chimmney= RectangleAsset(70, 170, thinline, black)
-Sun=CircleAsset(130, thinline, yellow)
 Earth=RectangleAsset(10010, 300, thinline, green)\
 
-Sun=CircleAsset(130, thinline, yellow)
+#Sun=CircleAsset(130, thinline, yellow)
+
 Sprite(Earth,(-20, 830))
 
+sun = Sun((200,200))
 
 tries = 0
 Edges = 0
