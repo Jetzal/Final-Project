@@ -15,15 +15,17 @@ class Sun(Sprite):
         super().__init__(Sun.asset, position)
         
 class Coin(Sprite):
-    asset = ImageAsset("images/coins.jpg", Frame(0,0,500/2,250), 2)
+    asset = ImageAsset("images/coins.jpg", Frame(0,0,750/3,250), 3)
     width = 80
     height = 76
     flipping = True
+    steps = 0
     
-    def __init__(self, position):
+    def __init__(self, position, result):
         super().__init__(Coin.asset, position)
         self.image = 1
-
+        self.result = result
+        
     def setside(self,side):
         flipping = False
         self.setImage(side)
@@ -31,15 +33,19 @@ class Coin(Sprite):
     def step(self):
         if self.flipping:
             self.image = self.image + 1
-            if self.image >= 2:
+            if self.image >= 3:
                 self.image = 0
             self.setImage(self.image)
+        if self.steps > 50:
+            self.setside(self.result)
+        else:
+            self.steps = self.steps + 1
 
 class CoinGame(App):
     
-    def __init__(self):
+    def __init__(self, result):
         super().__init__()
-        self.coin = Coin((200,200))
+        self.coin = Coin((200,200),result)
 
     def step(self):
         self.coin.step()
@@ -79,6 +85,8 @@ Wind=input("How much wind is there, 1-10?")
 Throw=input("1=Toss from your hand and you choose, 2=Toss from someone elses hand and they choose")
 Land=input("1=land in throwers hand, 2=land on the ground, 3= land on the ground and spin")
  
+resultv = 0
+ 
 #111
 if int(Throw) == 1:
     start = input("1=flip from heads up, 2=flip from tails up")
@@ -87,31 +95,40 @@ if int(Throw) == 1:
             outcome111 = random.randint(1,10000)
             print(outcome111)
             if outcome111 < 5099.133:  #head
-                print("heads")
+                print("heads") 
+                resultv = 1
             elif outcome111 > 5099.133 and outcome111 < 9998.2: #tails
                 print("tails")
+                resultv = 0
             elif outcome111 > 9998.2: #edge
                 print("Edge")
+                resultv = 2
 # 112
         if int(Land) == 2:
             outcome112 = random.randint(1,10000)
             print(outcome112)
             if outcome112 < 5000:
                 print("tails")
+                resultv = 0
             if outcome112 > 5000:
                 print("heads")
+                resultv = 1
             if outcome112 == 5000:
                 print("Edge")
+                resultv = 2
 #113    
         if int(Land) == 3:
             outcome113 = random.randint(1,10000)
             print(outcome113)
             if outcome112 < 5000:
                 print("tails")
+                resultv = 0
             if outcome113 > 5000:
                 print("heads")
+                resultv = 1
             if outcome113 == 5000:
                 print("Edge")
+                resultv = 2
 #121
     if int(start) == 2:
         if int(Land) == 1: #land throwers hand
@@ -119,30 +136,39 @@ if int(Throw) == 1:
             print(outcome121)
             if outcome121 < 5099.133:  #head
                 print("heads")
+                resultv = 1
             elif outcome121 > 5099.133 and outcome11 < 9998.2: #tails
                 print("tails")
+                resultv = 0
             elif outcome121 > 9998.2: #edge
                 print("Edge")
+                resultv = 2
 #122
         if int(Land) == 2:
             outcome122 = random.randint(1,10000)
             print(outcome12)
             if outcome122 < 5000:
                 print("tails")
+                resultv = 0
             if outcome122 > 5000:
                 print("heads")
+                resultv = 1
             if outcome122 == 5000:
                 print("edge")
+                resultv = 2
 #123
         if int(Land) == 3:
             outcome123 = random.randint(1,10000)
             print(outcome123)
             if outcome123 < 5000:
                 print("tails")
+                resultv = 0
             if outcome123 > 5000:
                 print("heads")
+                resultv = 1
             if outcome123 == 5000:
                 print("edge")
+                resultv = 2
 #
 #
 #
@@ -159,29 +185,39 @@ if int(Throw) == 2:
             print(outcome211)
             if outcome211 < 5099.133:  #head
                 print("heads")
+                resultv = 1
             elif outcome211 > 5099.133 and outcome11 < 9998.2: #tails
                 print("tails")
+                resultv = 1
             elif outcome211 > 9998.2: #edge
                 print("Edge")
+                resultv = 2
+                
 #212
         if int(Land) == 2:
             outcome212 = random.randint(1,10000)
             print(outcome212)
             if outcome212 < 5000:
                 print("tails")
+                resultv = 0
             if outcome212 > 5000:
                 print("heads")
+                resultv = 1
             if outcome212 == 5000:
                 print("Edge")
+                resultv = 2
         if int(Land) == 3:
             outcome213 = random.randint(1,10000)
             print(outcome113)
             if outcome212 < 5000:
                 print("tails")
+                resultv = 0
             if outcome213 > 5000:
                 print("heads")
+                resultv = 1
             if outcome213 == 5000:
                 print("Edge")
+                resultv = 2
 #213  
 elif int(Throw) == 2:  #Someones elses hand they choose
     startr = random.randint(1,2)
@@ -189,10 +225,13 @@ elif int(Throw) == 2:  #Someones elses hand they choose
         outcome211
         if outcome12 < 5099.133:  #tails
             print("tails")
+            resultv =  0
         elif outcome12 > 5099.133 and outcome111 < 9998.2: #heads
             print("heads")
+            resultv = 1
         elif outcome12 > 9998.2: #edge
             print("Edge") 
+            resultv = 2
  #221
     if int(start) == 2:
         if int(Land) == 1: #land throwers hand
@@ -200,30 +239,39 @@ elif int(Throw) == 2:  #Someones elses hand they choose
             print(outcome221)
             if outcome221 < 5099.133:  #head
                 print("heads")
+                resultv = 1
             elif outcome221 > 5099.133 and outcome11 < 9998.2: #tails
                 print("tails")
+                resultv = 0
             elif outcome221 > 9998.2: #edge
                 print("Edge")
+                resultv = 2
 #222
         if int(Land) == 2:
             outcome222 = random.randint(1,10000)
             print(outcome12)
             if outcome222 < 5000:
                 print("tails")
+                resultv = 0
             if outcome222 > 5000:
                 print("heads")
+                resultv = 1
             if outcome222 == 5000:
                 print("edge")
+                resultv = 2
 #223
         if int(Land) == 3:
             outcome223 = random.randint(1,10000)
             print(outcome123)
             if outcome223 < 5000:
                 print("tails")
+                resultv = 0
             if outcome223 > 5000:
                 print("heads")
+                resultv = 1
             if outcome223 == 5000:
                 print("edge")
+                resultv = 2
 
 
 
@@ -283,6 +331,6 @@ print("Heads=" ,H,"")
 """
  
  
-myapp = CoinGame()
+myapp = CoinGame(1)
 myapp.run()
  
