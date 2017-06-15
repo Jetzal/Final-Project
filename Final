@@ -19,26 +19,20 @@ class Coin(Sprite):
     width = 80
     height = 76
     flipping = True
-
+    
     def __init__(self, position):
         super().__init__(Coin.asset, position)
         self.image = 1
-        self.steps = 0
 
     def setside(self,side):
         flipping = False
         self.setImage(side)
-    
+        
     def step(self):
-        self.steps = self.steps + 1
-        if flipping:
-            self.image = self.image + 1
-            if self.image >= 2:
-                self.image = 0
-            self.setImage(self.image)
-            
-
-            
+        self.image = self.image + 1
+        if self.image >= 2:
+            self.image = 0
+        self.setImage(self.image)
 
 class CoinGame(App):
     
