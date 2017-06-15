@@ -6,6 +6,13 @@ from ggame import SoundAsset, Sound, TextAsset, Color
 import math
 from time import time
 
+class CoinGame(App):
+    coin = Coin((200,200), "tail")
+    coinstate = "tail"
+    
+    def step(self):
+        delete coin
+
 class Sun(Sprite):
     asset = ImageAsset("images/sun.png")
     width = 80
@@ -19,7 +26,8 @@ class Coin(Sprite):
     height = 76
     
     def __init__(self, position, type):
-        super().__init__(ImageAsset("images/coin" + type + ".jpg"), position)
+        # type = head or tail
+        super().__init__(ImageAsset("images/coin_" + type + ".jpg"), position)
 
 
 red = Color(0xff0000, 1.0)
@@ -45,7 +53,7 @@ Earth=RectangleAsset(10010, 300, thinline, green)\
 
 Sprite(Earth,(-20, 830))
 
-sun = Sun((200,200))
+sun = Coin((200,200), "tail")
 
 tries = 0
 Edges = 0
@@ -260,6 +268,6 @@ print("Heads=" ,H,"")
 """
  
  
-myapp = App()
+myapp = CoinGame()
 myapp.run()
  
