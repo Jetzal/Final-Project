@@ -26,13 +26,16 @@ class Coin(Sprite):
         
     def setside(self,side):
         flipping = False
+        self.setImage(side)
         
     def step(self):
+        print("LOL")
         if self.flipping:
             self.setImage(image)
             self.image = self.image + 1
             if self.image >= 2:
                 self.image = 0
+        print("LOL2")
 
 class CoinGame(App):
     coin = Coin((200,200))
