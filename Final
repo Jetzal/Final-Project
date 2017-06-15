@@ -15,7 +15,7 @@ class Sun(Sprite):
         super().__init__(Sun.asset, position)
         
 class Coin(Sprite):
-    asset = ImageAsset("images/coins.jpg", Frame(0,0,750/3,250), 3)
+    asset = ImageAsset("images/coins.png", Frame(0,0,750/3,250), 3)
     width = 80
     height = 76
     flipping = True
@@ -23,7 +23,7 @@ class Coin(Sprite):
     
     def __init__(self, position, result):
         super().__init__(Coin.asset, position)
-        self.image = 1
+        self.image = 0
         self.result = result
         
     def setside(self,side):
@@ -331,6 +331,6 @@ print("Heads=" ,H,"")
 """
  
  
-myapp = CoinGame(1)
+myapp = CoinGame(resultv)
 myapp.run()
  
