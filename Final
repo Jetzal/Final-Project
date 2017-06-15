@@ -29,10 +29,11 @@ class Coin(Sprite):
         self.setImage(side)
         
     def step(self):
-        self.image = self.image + 1
-        if self.image >= 2:
-            self.image = 0
-        self.setImage(self.image)
+        if self.flipping:
+            self.image = self.image + 1
+            if self.image >= 2:
+                self.image = 0
+            self.setImage(self.image)
 
 class CoinGame(App):
     
