@@ -22,12 +22,24 @@ class Sun(Sprite):
         super().__init__(Sun.asset, position)
         
 class Coin(Sprite):
+    asset = ImageAsset("images/coins.jpg", Frame(0,0,500/2,250), 2)
     width = 80
     height = 76
+    flipping = true
     
-    def __init__(self, position, type):
-        # type = head or tail
-        super().__init__(ImageAsset("images/coin_" + type + ".jpg"), position)
+    def __init__(self, position):
+        super().__init__(Coin.asset, position)
+        self.image = 0
+        
+    def setside(self,side):
+        flipping = false
+        
+    def step(self):
+        if self.flipping:
+            self.setImage(image)
+            self.image = self.image + 1
+            if self.image >= 2:
+                self.image = 0
 
 
 red = Color(0xff0000, 1.0)
