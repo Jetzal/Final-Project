@@ -37,12 +37,15 @@ class Coin(Sprite):
                 self.image = 0
         print("LOL2")
 
-        
 class CoinGame(App):
-    coin = Coin((200,200))
+    
+    def __init__(self):
+        super().__init__()
+        self.coin = Coin((200,200))
+
 
     def step(self):
-        coin.step()
+        self.coin.step()
 
 
 red = Color(0xff0000, 1.0)
