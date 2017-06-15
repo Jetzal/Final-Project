@@ -18,14 +18,14 @@ class Coin(Sprite):
     asset = ImageAsset("images/coins.jpg", Frame(0,0,500/2,250), 2)
     width = 80
     height = 76
-    flipping = true
+    flipping = True
     
     def __init__(self, position):
         super().__init__(Coin.asset, position)
         self.image = 0
         
     def setside(self,side):
-        flipping = false
+        flipping = False
         
     def step(self):
         if self.flipping:
@@ -35,7 +35,7 @@ class Coin(Sprite):
                 self.image = 0
 
 class CoinGame(App):
-    coin = Coin((200,200), "tail")
+    coin = Coin((200,200))
 
     def step(self):
         coin.step()
@@ -64,7 +64,7 @@ Earth=RectangleAsset(10010, 300, thinline, green)\
 
 Sprite(Earth,(-20, 830))
 
-sun = Coin((200,200), "tail")
+#sun = Coin((200,200), "tail")
 
 tries = 0
 Edges = 0
@@ -84,7 +84,7 @@ if int(Throw) == 1:
             print(outcome111)
             if outcome111 < 5099.133:  #head
                 print("heads")
-            elif outcome111 > 5099.133 and outcome11 < 9998.2: #tails
+            elif outcome111 > 5099.133 and outcome111 < 9998.2: #tails
                 print("tails")
             elif outcome111 > 9998.2: #edge
                 print("Edge")
